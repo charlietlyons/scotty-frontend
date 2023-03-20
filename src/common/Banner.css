@@ -1,0 +1,27 @@
+:root {
+  --border-radius: 15px;
+  --image-height-width: 300px;
+}
+
+img {
+  width: var(--image-height-width);
+  height: var(--image-height-width);
+  border-radius: var(--border-radius);
+}
+
+.bannerContainer {
+  margin: 10px;
+  border-radius: var(--border-radius);
+}
+
+.bannerText {
+  text-align: center;
+  padding: 10px 20px;
+  background-color: grey;
+}
+
+@media (max-width: 900px) {
+    img {
+        display: none;
+    }
+}

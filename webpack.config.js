@@ -5,6 +5,7 @@ module.exports = {
   mode: "development",
   entry: "./index.js",
   output: {
+    clean: true,
     path: path.resolve(__dirname, "public"),
     filename: "main.js",
   },
@@ -25,6 +26,23 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: "babel-loader",
+      },
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(webp|png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
