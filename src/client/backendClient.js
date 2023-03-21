@@ -1,9 +1,13 @@
 const backendClient = {
-  getProductInfo: () => {
-    fetch("localhost:8000/products", {})
-      .catch()
-      .then((response) => response.json())
-      .then((data) => console.table(data));
+  getProductInfo: (setProductInfo) => {
+    fetch("http://localhost:5000/inventory", {
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((productData) => {
+        setProductInfo(productData)
+      });
   },
 };
 

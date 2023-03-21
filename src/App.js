@@ -1,13 +1,19 @@
-import React, { useCallback } from "react";
-import { Paper, Box, Grid } from "@mui/material";
+import React, { useCallback, useState, useEffect } from "react";
+import { Paper, Box, Grid, Button } from "@mui/material";
 import backendClient from "./client/backendClient";
 import Banner from "./common/Banner";
 
 import styles from "./App.css";
 
 const App = () => {
+  const [productInfo, setProductInfo] = useState([]);
+
+  useEffect(() => {
+    backendClient.getProductInfo(setProductInfo);
+  }, [setProductInfo]);
+
   const getProductInfo = useCallback(() => {
-    backendClient.getProductInfo();
+    return backendClient.getProductInfo();
   });
 
   return (
@@ -22,16 +28,15 @@ const App = () => {
           columns={{ xs: 4, sm: 8, md: 12 }}
           // TODO: full study material grid
         >
-          <Grid item xs={4}>
-            <Banner />
-          </Grid>
-          <Grid item xs={4}>
-            <Banner />
-          </Grid>
-          <Grid item xs={4}>
-            <Banner />
-          </Grid>
+          {productInfo.map((product) => {
+            return (
+              <Grid item xs={4}>
+                <Banner imageSrc={product.image_url}>{product.name}</Banner>
+              </Grid>
+            );
+          })}
         </Grid>
+        <Button onClick={getProductInfo}>Inventory</Button>
       </Box>
     </div>
   );

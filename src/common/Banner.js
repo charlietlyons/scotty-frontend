@@ -1,15 +1,14 @@
 import React from "react";
 import { Paper } from "@mui/material";
 
-import testImage from "../../public/test-putter.webp";
 import styles from "./Banner.css";
 
-const Banner = () => {
+const Banner = (props) => {
   return (
     <>
       <Paper className={styles.bannerContainer}>
-        <img src={testImage} />
-        <Paper className={styles.bannerText}>Content</Paper>
+        <img src={props.imageSrc} />
+        <Paper className={styles.bannerText}>{props.children}</Paper>
       </Paper>
     </>
   );
