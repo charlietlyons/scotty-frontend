@@ -1,7 +1,7 @@
 import React from "react";
 
 const Featured = () => {
-  return <></>;
+  return <>Featured</>;
 };
 
 export default Featured;

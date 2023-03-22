@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { Box, Grid, Paper, Button } from "@mui/material";
+import Banner from "../common/Banner";
+import backendClient from "../client/backendClient";
+
+import styles from "../App.css";
 
 const Products = () => {
   const [productInfo, setProductInfo] = useState([]);
@@ -12,10 +17,6 @@ const Products = () => {
   });
 
   return (
-    <Box className={styles.pageContent}>
-      <Paper className={styles.heading}>
-        <h1>Scotty Cameron Reseller</h1>
-      </Paper>
       <Grid
         container
         className={styles.bannerGallery}
@@ -30,8 +31,6 @@ const Products = () => {
           );
         })}
       </Grid>
-      <Button onClick={getProductInfo}>Inventory</Button>
-    </Box>
   );
 };
 
