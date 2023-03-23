@@ -1,13 +1,15 @@
 :root {
-  --crimson: #b90019;
-  --space-cadet: #2B2D42;
-  --battleship-gray: #6B778C;
+  --crimson: #8e0618;
+  --space-cadet: #2a0e0e;
+  --space-cadet-transparent: #2a0e0e34;
+  --battleship-gray: #373a3e;
   --gray-white: #dfdede;
-  --turkey-red: #A40B0B;
+  --turkey-red: #a40b0b;
 }
 
 html {
-  background-color: var(--gray-white);
+  background-color: var(--space-cadet);
+  color: var(--gray-white) !important;
 }
 
 .heading {
@@ -23,7 +25,7 @@ html {
   min-width: 100%;
   min-height: 100;
   border-radius: 15px;
-  background-color: rgb(229, 229, 229);
+  background-color: var(--battleship-gray);
 }
 
 @media (max-width: 975px) {

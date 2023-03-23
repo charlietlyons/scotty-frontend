@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Box, Grid, Paper, Button } from "@mui/material";
-import Banner from "../common/Banner";
+import { Grid } from "@mui/material";
+import Banner from "../common/banner/Banner";
 import backendClient from "../client/backendClient";
 
 import styles from "../App.css";
