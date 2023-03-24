@@ -1,21 +1,7 @@
-:root {
-  --crimson: #8e0618;
-  --space-cadet: #2a0e0e;
-  --space-cadet-transparent: #4b2927ba;
-  --battleship-gray: #373a3e;
-  --gray-white: #dfdede;
-  --turkey-red: #410b12;
-}
-
-html {
-  background-color: var(--space-cadet);
-  color: var(--gray-white) !important;
-}
 
 .heading {
   min-width: 100%;
   min-height: 100px;
-  background-color: var(--turkey-red) !important;
   text-align: center;
   padding: 10px 0;
   box-sizing: border-box;

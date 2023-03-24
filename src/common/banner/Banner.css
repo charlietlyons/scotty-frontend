@@ -17,7 +17,6 @@ img {
 .bannerText {
   text-align: center;
   padding: 10px 20px;
-  background-color: grey;
 }
 
 @media (max-width: 900px) {

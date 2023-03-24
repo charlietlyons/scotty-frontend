@@ -1,26 +1,24 @@
-nav {
-  display: flex;
-  flex-direction: row;
+.navBar {
+  display: flex !important;
+  flex-direction: row !important;
   justify-content: center;
   align-items: center;
-  padding: 10px 0;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
 }
 
 .navLink {
   text-decoration: none;
-  color: var(--gray-white);
   font-weight: bold;
   font-size: 1.2rem;
   padding: 10px;
+  color: #fffbff;
 }
 
 .active {
   box-sizing: border-box;
   border-radius: 15px;
-  background-color: var(--space-cadet-transparent) !important;
+  background-color: #bb566c69 !important;
 }
 
 .pending {
-  /* background-color: var(--space-cadet-transparent) !important; */
+  background-color: #ea708b69 !important;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Box, Paper, ThemeProvider } from "@mui/material";
+import { Box, Paper, ThemeProvider, StyledEngineProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import Navbar from "./common/navbar/Navbar";
 import { loadPrimaryTheme } from "./common/util/LoadThemeHelper";
@@ -17,7 +17,10 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box className={styles.pageContent}>
-        <Paper className={styles.heading} color="secondary">
+        <Paper className={styles.heading} sx={{
+          color: "text.primary",
+          bgcolor: "background.default",
+        }}>
           <h1>Scotty Cameron Reseller</h1>
         </Paper>
         <BrowserRouter>
