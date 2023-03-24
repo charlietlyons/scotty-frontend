@@ -4,7 +4,6 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 10px 0;
-  background-color: transparent;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
 }
 
@@ -13,13 +12,15 @@ nav {
   color: var(--gray-white);
   font-weight: bold;
   font-size: 1.2rem;
+  padding: 10px;
 }
 
 .active {
-  background-color: var(--space-cadet-transparent);
-  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  background-color: var(--space-cadet-transparent) !important;
 }
 
 .pending {
-  background-color: var(--space-cadet-transparent);
+  /* background-color: var(--space-cadet-transparent) !important; */
 }

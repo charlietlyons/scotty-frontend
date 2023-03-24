@@ -1,10 +1,10 @@
 :root {
   --crimson: #8e0618;
   --space-cadet: #2a0e0e;
-  --space-cadet-transparent: #2a0e0e34;
+  --space-cadet-transparent: #4b2927ba;
   --battleship-gray: #373a3e;
   --gray-white: #dfdede;
-  --turkey-red: #a40b0b;
+  --turkey-red: #410b12;
 }
 
 html {
@@ -15,7 +15,7 @@ html {
 .heading {
   min-width: 100%;
   min-height: 100px;
-  background-color: var(--crimson) !important;
+  background-color: var(--turkey-red) !important;
   text-align: center;
   padding: 10px 0;
   box-sizing: border-box;
@@ -25,7 +25,6 @@ html {
   min-width: 100%;
   min-height: 100;
   border-radius: 15px;
-  background-color: var(--battleship-gray);
 }
 
 @media (max-width: 975px) {
