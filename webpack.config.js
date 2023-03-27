@@ -1,9 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack');
 
-module.exports = {
-  mode: "development",
-  entry: "./index.js",
+module.exports = (env, argv) => {
+  return {
+    mode: argv.mode === 'development' ? 'development' : 'production',
+    entry: "./index.js",
   output: {
     clean: true,
     publicPath: '/',
@@ -53,5 +55,10 @@ module.exports = {
       template: path.join(__dirname, "public", "index.html"),
       publicPath: '/',
     }),
+    new webpack.DefinePlugin({
+      PRODUCTION: JSON.stringify(argv.mode === 'production'),
+    }),
   ],
+  }
+  
 };
