@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import Banner from "../common/banner/Banner";
 import backendClient from "../client/backendClient";

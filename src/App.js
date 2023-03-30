@@ -1,12 +1,13 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Box, Paper, ThemeProvider, StyledEngineProvider } from "@mui/material";
+import { Box, Paper, ThemeProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import Navbar from "./common/navbar/Navbar";
 import { loadPrimaryTheme } from "./common/util/LoadThemeHelper";
 
-import Featured from "./pages/Featured";
-import Products from "./pages/Products";
+import DataLoadingSpinner from "./common/DataLoadingSpinner";
+import Featured from "./featured/Featured";
+const Products = React.lazy(() => import("./products/Products"));
 
 import styles from "./App.css";
 
@@ -27,7 +28,11 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route path="/" exact element={<Featured />} />
-            <Route path="/products" element={<Products />} />
+            <Route path="/products" element={
+              <Suspense fallback={<DataLoadingSpinner />}>
+                <Products />
+              </Suspense>}
+            />
           </Routes>
         </BrowserRouter>
       </Box>
