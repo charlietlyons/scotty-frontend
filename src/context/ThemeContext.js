@@ -8,7 +8,7 @@ const ThemeContext = React.createContext({
     },
     text: {
       primary: "#fffbff",
-      secondary: "#fffbff",
+      secondary: "#170506",
       disabled: "#797879",
     },
     primary: {

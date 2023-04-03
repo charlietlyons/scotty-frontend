@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
-import Banner from "../common/banner/Banner";
 import backendClient from "../client/backendClient";
 
 import styles from "../App.css";
+import ProductCard from "./ProductCard";
 
 const Products = () => {;
   const [productInfo, setProductInfo] = useState([]);
@@ -16,14 +16,17 @@ const Products = () => {;
       <Grid
         container
         className={styles.bannerGallery}
-        columns={{ xs: 4, sm: 8, md: 12 }}
+        sx={{
+          width: "70%",
+          margin: "auto",
+          paddingTop: "10px",
+        }}
+        spacing={5}
         // TODO: full study material grid
       >
         {productInfo && productInfo.map((product) => {
           return (
-            <Grid item xs={4}>
-              <Banner imageSrc={product.image_url}>{product.name}</Banner>
-            </Grid>
+            <ProductCard imageSrc={product.image_url} product={product}/>
           );
         })}
       </Grid>
