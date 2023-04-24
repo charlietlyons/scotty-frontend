@@ -38,6 +38,14 @@ module.exports = (env, argv) => {
           use: "babel-loader",
         },
         {
+          test: /\.ttf$/,
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+            outputPath: "fonts/",
+          }
+        },
+        {
           test: /\.css$/,
           use: [
             "style-loader",

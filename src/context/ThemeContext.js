@@ -1,6 +1,20 @@
 import React from "react";
+import Damion from "/assets/Damion-8gnD.ttf";
+
+const damion = {
+  fontFamily: 'Damion',
+  fontStyle: 'normal',
+  fontDisplay: 'swap',
+  fontWeight: 400,
+  src: `
+    url(${Damion}) format('truetype')
+  `,
+};
 
 const ThemeContext = React.createContext({
+  typography: {
+    fontFamily: "Damion",
+  },
   // TODO: add light, dark, contrastText properties
   palette: {
     background: {
@@ -37,6 +51,13 @@ const ThemeContext = React.createContext({
     //   //used to indicate the successful completion of an action that user triggered.
     //   main: "#00ff00",
     // },
+  },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '@font-face': [damion],
+      },
+    },
   },
 });
 

@@ -6,7 +6,7 @@ import Navbar from "./common/navbar/Navbar";
 import { loadPrimaryTheme } from "./common/util/LoadThemeHelper";
 
 import DataLoadingSpinner from "./common/DataLoadingSpinner";
-import Featured from "./featured/Featured";
+const Featured = React.lazy(() => import("./featured/Featured"));
 const Products = React.lazy(() => import("./products/Products"));
 
 import styles from "./App.css";
@@ -27,12 +27,18 @@ const App = () => {
         <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path="/" exact element={<Featured />} />
-            <Route path="/products" element={
-              <Suspense fallback={<DataLoadingSpinner />}>
-                <Products />
-              </Suspense>}
-            />
+              <Route path="/" exact element={
+                <Suspense fallback={
+                  <DataLoadingSpinner />
+                }>
+                  <Featured />
+                </Suspense>
+              }/>
+              <Route path="/products" element={
+                <Suspense fallback={<DataLoadingSpinner />}>
+                  <Products />  
+                </Suspense>
+              }/>
           </Routes>
         </BrowserRouter>
       </Box>

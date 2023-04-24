@@ -11,27 +11,15 @@ const ProductCard = (props) => {
         <Grid key={id} item xs={4}>
             <Card sx={{
                 flexDirection: "row",
+                borderRadius: "10px",
             }}>
                 <CardMedia component="img" image={image_url} sx={{
                     height: "100%",
                     color: "secondary.primary",
-                    padding: "10px",
-                }}></CardMedia>
-                <Paper sx={{
-                    color: "text.secondary",
-                    textAlign: "center",
-                    padding: "10px",
-                }}>{name}</Paper>
-                <Paper sx={{
-                    color: "text.secondary",
-                    textAlign: "center",
-                    padding: "10px",
-                }}>${price}</Paper>
-                { size !== "N/A" && <Paper sx={{
-                    color: "text.secondary",
-                    textAlign: "center",
-                    padding: "10px",
-                }}>{size}</Paper>}
+                }} />
+                <h2>{name}</h2>
+                <h3>${price}</h3>
+                { size !== "N/A" && <h3>{size}</h3>}
             </Card>
         </Grid>
     );
