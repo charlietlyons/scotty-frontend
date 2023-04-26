@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import backendClient from "../client/backendClient";
+import FakeProduct from "../common/FakeProduct"
 
 import styles from "../App.css";
 import ProductCard from "./ProductCard";
 
 const Products = () => {
-  const [productInfo, setProductInfo] = useState([]);
+  const [productInfo, setProductInfo] = useState([FakeProduct]);
 
   useEffect(() => {
     backendClient.getProducts(setProductInfo);

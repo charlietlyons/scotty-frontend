@@ -2,15 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import backendClient from "../client/backendClient";
 import { Container, Typography, CardMedia, Box } from "@mui/material";
-import styled from "styled-components";
-
-const TitleText = styled.h1`
-  color: palevioletred;
-`;
+import FakeProduct from "../common/FakeProduct";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const [productInfo, setProductInfo] = useState({});
+  const [productInfo, setProductInfo] = useState(FakeProduct);
 
   useEffect(() => {
     backendClient.getProductDetailsById(id, (data) => {
@@ -31,9 +27,14 @@ const ProductDetails = () => {
         ></CardMedia>
       </Box>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <TitleText>
-          <Typography variant="h2">{productInfo.name}</Typography>
-        </TitleText>
+        <Typography
+          variant="h2"
+          sx={{
+            color: "palevioletred",
+          }}
+        >
+          {productInfo.name}
+        </Typography>
         <Typography variant="h3">Price: {productInfo.price}</Typography>
         <Typography variant="h3">Size: {productInfo.size}</Typography>
         <Typography variant="h3">Quantity: {productInfo.quantity}</Typography>
