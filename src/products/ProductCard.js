@@ -14,7 +14,17 @@ const ProductCard = (props) => {
       item
       xs={4}
       onClick={() => {
-        navigate(`/products/${id}`);
+        navigate(`/products/${id}`, {
+          state: {
+            id: id,
+            name: name,
+            image_url: image_url,
+            price: price,
+            quantity: quantity,
+            size: size,
+            sku: sku,
+          }
+        });
       }}
     >
       <Card
