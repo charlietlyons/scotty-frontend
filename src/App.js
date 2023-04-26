@@ -1,10 +1,9 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Box, Paper, ThemeProvider } from "@mui/material";
+import { Box, Paper, ThemeProvider, Typography } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import Navbar from "./common/navbar/Navbar";
 import { loadPrimaryTheme } from "./common/util/LoadThemeHelper";
-
 import DataLoadingSpinner from "./common/DataLoadingSpinner";
 import Featured from "./featured/Featured";
 const Products = React.lazy(() => import("./products/Products"));
@@ -28,7 +27,7 @@ const App = () => {
             bgcolor: "background.default",
           }}
         >
-          <h1>Scotty Cameron Reseller</h1>
+          <Typography variant="h1" color="text.secondary">Scotty Cameron Reseller</Typography>
         </Paper>
         <BrowserRouter>
           <Navbar />

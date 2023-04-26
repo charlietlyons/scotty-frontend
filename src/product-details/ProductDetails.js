@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import backendClient from "../client/backendClient";
-import { Container, Typography, CardMedia, Box } from "@mui/material";
+import { Typography, CardMedia, Box, ButtonGroup, TextField, Button, Divider } from "@mui/material";
 import DataLoadingSpinner from "../common/DataLoadingSpinner";
+import PageBody from "../common/PageBody";
+
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -18,34 +20,33 @@ const ProductDetails = () => {
   }, [setProductInfo, id, productInfo]);
 
   return productInfo && (
-    <Container sx={{ display: "flex", flexDirection: "row" }}>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        {productInfo.image_url &&<CardMedia
-          component="img"
-          image={productInfo.image_url}
-          sx={{
-            width: "100%",
-            padding: "10px",
-          }}
-        ></CardMedia>}
+    <PageBody>
+      <Box sx={{display: "flex", flexDirection: "row", padding: "25px 0"}}>
+        <Box sx={{ display: "flex", flexDirection: "column", width: "50%" }}>
+          {productInfo.image_url &&<CardMedia
+            component="img"
+            image={productInfo.image_url}
+            sx={{
+              padding: "10px",
+            }}
+          ></CardMedia>}
+        </Box>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Typography variant="h3">{productInfo.name}</Typography>
+          <Typography variant="h3">${productInfo.price}</Typography>
+          <Typography variant="h3">Size: {productInfo.size} | Quantity: {productInfo.quantity}</Typography>
+          <Typography variant="p">
+            Description: {productInfo.description}
+          </Typography>
+        </Box>
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Typography
-          variant="h2"
-          sx={{
-            color: "palevioletred",
-          }}
-        >
-          {productInfo.name}
-        </Typography>
-        <Typography variant="h3">Price: {productInfo.price}</Typography>
-        <Typography variant="h3">Size: {productInfo.size}</Typography>
-        <Typography variant="h3">Quantity: {productInfo.quantity}</Typography>
-        <Typography variant="p">
-          Description: {productInfo.description}
-        </Typography>
-      </Box>
-    </Container>
+      <Divider />
+      <ButtonGroup fullWidth sx={{ paddingBottom: "50px"}}>
+          <TextField id="quantity" label="Quantity" variant="filled" />
+          <Button variant="contained" color="primary">Add to Cart</Button>
+          <Button variant="contained" color="secondary">Buy Now</Button>
+        </ButtonGroup>
+    </PageBody>
   ) || <DataLoadingSpinner />;
 };
 

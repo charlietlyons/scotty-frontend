@@ -1,14 +1,17 @@
 import React from "react";
 
 const ThemeContext = React.createContext({
+  typography: {
+    fontFamily: "Roboto",
+  },
   // TODO: add light, dark, contrastText properties
   palette: {
     background: {
       default: "#40000e",
     },
     text: {
-      primary: "#fffbff",
-      secondary: "#170506",
+      primary: "#170506",
+      secondary: "#fffbff",
       disabled: "#797879",
     },
     primary: {
