@@ -8,6 +8,7 @@ const ThemeContext = React.createContext({
   palette: {
     background: {
       default: "#40000e",
+      button: "#f3e8ea"
     },
     text: {
       primary: "#170506",

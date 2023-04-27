@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import backendClient from "../client/backendClient";
 import FakeProduct from "../common/FakeProduct"
+import useMediaQuery from '@mui/material/useMediaQuery';
 
-import styles from "../App.css";
 import ProductCard from "./ProductCard";
 
 const Products = () => {
   const [productInfo, setProductInfo] = useState([FakeProduct]);
+  const matches = useMediaQuery('(max-width:975px)');
 
   useEffect(() => {
     backendClient.getProducts(setProductInfo);
@@ -16,8 +17,8 @@ const Products = () => {
   return (
     <Grid
       container
-      className={styles.bannerGallery}
       sx={{
+        flexDirection: matches ? "column" : "row",
         width: "70%",
         margin: "auto",
         paddingTop: "10px",

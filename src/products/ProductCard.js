@@ -2,8 +2,6 @@ import React from "react";
 import { Grid, Card, CardMedia, Paper, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-import styles from "../App.css";
-
 const ProductCard = (props) => {
   const { id, name, image_url, price, quantity, size, sku, description } = props.product;
   const navigate = useNavigate();
