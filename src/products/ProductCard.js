@@ -1,11 +1,11 @@
 import React from "react";
-import { Grid, Card, CardMedia, Paper } from "@mui/material";
+import { Grid, Card, CardMedia, Paper, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import styles from "../App.css";
 
 const ProductCard = (props) => {
-  const { id, name, image_url, price, quantity, size, sku } = props.product;
+  const { id, name, image_url, price, quantity, size, sku, description } = props.product;
   const navigate = useNavigate();
 
   return (
@@ -14,7 +14,18 @@ const ProductCard = (props) => {
       item
       xs={4}
       onClick={() => {
-        navigate(`/products/${id}`);
+        navigate(`/products/${id}`, {
+          state: {
+            id: id,
+            name: name,
+            image_url: image_url,
+            price: price,
+            quantity: quantity,
+            size: size,
+            sku: sku,
+            description: description
+          }
+        });
       }}
     >
       <Card
@@ -38,7 +49,7 @@ const ProductCard = (props) => {
             padding: "10px",
           }}
         >
-          {name}
+          <Typography variant="p" color="text.primary">{name}</Typography>
         </Paper>
         <Paper
           sx={{
@@ -47,7 +58,7 @@ const ProductCard = (props) => {
             padding: "10px",
           }}
         >
-          ${price}
+          <Typography variant="p" color="text.primary">${price}</Typography>
         </Paper>
         {size !== "N/A" && (
           <Paper
@@ -57,7 +68,7 @@ const ProductCard = (props) => {
               padding: "10px",
             }}
           >
-            {size}
+            <Typography variant="p" color="text.primary">{size}</Typography>
           </Paper>
         )}
       </Card>
