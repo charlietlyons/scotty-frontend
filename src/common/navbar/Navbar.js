@@ -16,6 +16,7 @@ const Navbar = () => {
     >
       <NavButton to="/">Featured</NavButton>
       <NavButton to="/products">Products</NavButton>
+      <NavButton to="/faq">FAQ</NavButton>
     </AppBar>
   );
 };

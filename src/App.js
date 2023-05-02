@@ -1,6 +1,6 @@
-import React, { Suspense, useReducer } from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Box, ThemeProvider} from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import Navbar from "./common/navbar/Navbar";
 import { loadPrimaryTheme } from "./common/util/LoadThemeHelper";
@@ -10,6 +10,7 @@ import Header from "./header/Header";
 import Cart from "./cart/Cart";
 import CartContext from "./context/CartContext";
 
+const FAQ = React.lazy(() => import("./faq/FAQ"));
 const Products = React.lazy(() => import("./products/Products"));
 const ProductDetails = React.lazy(() =>
   import("./product-details/ProductDetails")
@@ -18,8 +19,8 @@ const ProductDetails = React.lazy(() =>
 const pageContentStyles = {
   minWidth: "100%",
   minHeight: "100vh",
-  borderRadius: "15px"
-}
+  borderRadius: "15px",
+};
 
 const App = () => {
   const theme = loadPrimaryTheme();
@@ -54,6 +55,14 @@ const App = () => {
               element={
                 <Suspense fallback={<DataLoadingSpinner />}>
                   <Cart />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/faq"
+              element={
+                <Suspense fallback={<DataLoadingSpinner />}>
+                  <FAQ />
                 </Suspense>
               }
             />

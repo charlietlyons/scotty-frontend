@@ -1,24 +1,28 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import PageBody from "../common/PageBody";
 import { Typography, Card, Stack } from "@mui/material";
-import CartContext from "../context/CartContext";
 
 const CardStyle = {
-    margin: "10px",
-    textAlign: "center",
-}
+  margin: "10px",
+  textAlign: "center",
+};
 
 const Cart = () => {
-    // TODO: Implement Cart Context
+  // TODO: Implement Cart Context
+  const [state, setState] = useState({
+    cart: [{ name: "item 1" }, { name: "item 2" }, { name: "item 3" }],
+  });
 
-    return <PageBody>
-        <Typography variant="h2">Cart</Typography>
-        <Stack>
-            { state.cart.map((item) => {
-                return <Card sx={CardStyle}>{item.name}</Card>
-            })}
-        </Stack>
+  return (
+    <PageBody>
+      <Typography variant="h2">Cart</Typography>
+      <Stack>
+        {state.cart.map((item) => {
+          return <Card sx={CardStyle}>{item.name}</Card>;
+        })}
+      </Stack>
     </PageBody>
-}
+  );
+};
 
 export default Cart;
