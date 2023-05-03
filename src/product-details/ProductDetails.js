@@ -4,11 +4,13 @@ import backendClient from "../client/backendClient";
 import { Typography, CardMedia, Box, ButtonGroup, TextField, Button, Divider } from "@mui/material";
 import DataLoadingSpinner from "../common/DataLoadingSpinner";
 import PageBody from "../common/PageBody";
-
+import { addToCart } from "../cart/cartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const { state } = useLocation();
+  const dispatch = useDispatch();
   const [productInfo, setProductInfo] = useState(state);
 
   useEffect(() => {
@@ -44,7 +46,7 @@ const ProductDetails = () => {
       <ButtonGroup fullWidth sx={{ paddingBottom: "50px"}}>
           <TextField id="quantity" label="Quantity" variant="filled" />
           <Button variant="contained" color="primary">Add to Cart</Button>
-          <Button variant="contained" color="secondary">Buy Now</Button>
+          <Button variant="contained" color="secondary" onClick={() => dispatch(addToCart(productInfo))}>Buy Now</Button>
         </ButtonGroup>
     </PageBody>
   ) || <DataLoadingSpinner />;

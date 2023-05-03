@@ -8,7 +8,8 @@ import DataLoadingSpinner from "./common/DataLoadingSpinner";
 import Featured from "./featured/Featured";
 import Header from "./header/Header";
 import Cart from "./cart/Cart";
-import CartContext from "./context/CartContext";
+import store from "./store/store";
+import { Provider } from "react-redux";
 
 const FAQ = React.lazy(() => import("./faq/FAQ"));
 const Products = React.lazy(() => import("./products/Products"));
@@ -26,7 +27,8 @@ const App = () => {
   const theme = loadPrimaryTheme();
 
   return (
-    <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box className={pageContentStyles}>
         <BrowserRouter>
@@ -70,6 +72,7 @@ const App = () => {
         </BrowserRouter>
       </Box>
     </ThemeProvider>
+    </Provider>
   );
 };
 
